@@ -27,14 +27,28 @@ int main() {
 
     // fill second new array with the reverse of
     // the original; only using pointers
+    // [] way
     for (i = 0; i < 10; i++) {
-        *(new_ptr + 9 - i) = original_ptr[i];
+        new_ptr[9-i] = original_ptr[i];
     }
 
     // print the new array
-    printf("\nThe New Reversed Array:\n");
+    printf("\nThe New Reversed Array using []:\n");
     for (i = 0; i < 10; i++) {
         printf("%d: %d\n", i, new_array[i]);
+    }
+
+    // fill second new array with the reverse of
+    // the original; only using pointers
+    // * way
+    for (i = 0; i < 10; i++) {
+        *(new_ptr + 9 - i) = *(original_ptr + i);
+    }
+
+    // print the new array
+    printf("\nThe New Reversed Array using *:\n");
+    for (i = 0; i < 10; i++) {
+        printf("%d: %d\n", i, *(new_array + i));
     }
 
     return 0;
